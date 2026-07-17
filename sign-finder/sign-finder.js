@@ -6,7 +6,8 @@ Create a Node.js app that determines the astrological and zodiac signs for the u
 Read the instructions in the README.md file in this folder.
 ---------------------------- */
 // Import the getSign and getZodiac functions from the horoscope package
-const { getSign, getZodiac } = require("horoscope");
+import horoscope from "horoscope";
+const { getSign, getZodiac } = horoscope;
 
 // Get the month ,day and year from the terminal
 // process.argv[0] is Node
@@ -19,12 +20,16 @@ const day = Number(process.argv[3]);
 const year = Number(process.argv[4]);
 
 // Use getSign to find the astrological sign from the month and day
-const astrologicalSign = getSign({ month: month, day: day });
+const astrologicalSign = getSign({
+  month: month,
+  day: day,
+});
 
 // Use getZodiac to find the zodiac sign from the year
 const zodiacSign = getZodiac(year);
 
+
 // Prints the final message to the console
 console.log(
-  `Your astrological sign is ${astrologicalSign} and your zodiac sign is ${zodiacSign}`
+  `Your astrological sign is ${astrologicalSign} and your zodiac sign is ${zodiacSign}.`,
 );
